@@ -60,7 +60,8 @@ setInterval(async () => {
 (async () => {
 
 
-
+const res = await zeebe.deployResource({processFilename: './c8-sdk-demo.bpmn'})
+console.log(`Deployed process with BPMN process ID ${res.deployments[0].process}`)
 const p = await zeebe.createProcessInstanceWithResult({
 	bpmnProcessId: `c8-sdk-demo`,
 	variables: {
